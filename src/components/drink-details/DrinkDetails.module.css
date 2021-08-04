@@ -1,3 +1,44 @@
 .drinkDetailsBody {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
+  margin: 1%;
+  padding: 2%;
+}
 
+.drinkDetailsName {
+    size: 1.5em;
+    margin-bottom: 2%;
+}
+
+.drinkDetailsContents{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content:  space-evenly;
+}
+.drinkDetailsIngredients {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-right: 5%;
+  border: 1px solid black;
+  margin: 1%;
+  padding: 2%;
+}
+.drinkDetailsIngredients div {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+
+.drinkDetailsIngredients li {
+    list-style-type: none;
+    margin: 5%;
+}
+
+.drinkDetailsSteps{
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
+  margin: 1%;
+  padding: 2%;
 }
