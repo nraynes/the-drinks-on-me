@@ -1,0 +1,37 @@
+
+
+.modalBody {
+display: flex;
+flex-flow: column nowrap;
+border: 1px solid black;
+align-items: center;
+padding: 3%;
+
+}
+
+.modalTitle {
+  font-size: 2.5em;
+  padding: 3%;
+  font-family: "Amatic SC", cursive, monospace;
+  font-weight: 500;
+}
+
+.modalPrompt {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 10%;
+}
+
+.modalPromptButtons {
+   display: flex; 
+   flex-flow: row nowrap;
+   justify-content: space-evenly;
+   padding: 10%;
+   margin: 10%;
+}
+
+.modalPromptButtons> button {
+    margin: 50%;
+}
