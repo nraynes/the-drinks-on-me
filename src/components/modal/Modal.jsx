@@ -11,8 +11,8 @@ function Modal(props) {
       <div className={styles.modalPrompt}>
         Are you 21+ years old?
         <div className={styles.modalPromptButtons}>
-          <button>Yes</button>
-          <button>No</button>
+          <button className={styles.primaryButton}>Yes</button>
+          <button className={styles.secondaryButton}>No</button>
         </div>
       </div>
     </div>
