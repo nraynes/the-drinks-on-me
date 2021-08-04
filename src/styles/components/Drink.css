@@ -1,0 +1,31 @@
+.drinkItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 250px;
+  margin: 20px;
+}
+
+.drinkItem img {
+  width: 100%;
+  height: 200px;
+  border-radius: 50%;
+  width: 100%;
+}
+
+.drinkItem p {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/*# sourceMappingURL=Drink.css.map */
