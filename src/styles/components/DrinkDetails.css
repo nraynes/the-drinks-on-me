@@ -1,0 +1,82 @@
+.drinkDetailsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 750px;
+  max-width: 800px;
+  min-height: 220px;
+  position: fixed;
+  top: 10px;
+  border-radius: 15px;
+  right: 10px;
+  background-color: #a80606;
+  -webkit-box-shadow: 5px 10px 20px black;
+          box-shadow: 5px 10px 20px black;
+}
+
+.drinkDetailsContainer h4 {
+  margin-left: 20px;
+}
+
+.drinkDetailsContainer .ContentContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 10px;
+}
+
+.drinkDetailsContainer .ContentContainer .IngredientsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 30%;
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+.drinkDetailsContainer .ContentContainer .IngredientsContainer p {
+  margin-left: 10px;
+}
+
+.drinkDetailsContainer .ContentContainer .IngredientsContainer div ul {
+  list-style: none;
+}
+
+.drinkDetailsContainer .ContentContainer .StepsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60%;
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+.drinkDetailsContainer .ContentContainer .StepsContainer article {
+  margin: 10px;
+}
+/*# sourceMappingURL=DrinkDetails.css.map */

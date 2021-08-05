@@ -1,9 +1,32 @@
+@import '../variables.scss';
+
 .TopBar {
-  overflow: hidden;
-  background-color: #333;
+  background-color: $themePrimaryColor;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 180px;
-  color:white
+  height: 240px;
+  color:white;
+  h1 {
+    margin-left: 10px;
+  }
+  h1:hover {
+    color: rgb(187, 181, 181);
+  }
+  h1:active {
+    color: rgb(102, 100, 100);
+  }
+  div {
+    margin-left: 5px;
+    form {
+      display: flex;
+      flex-direction: column;
+      #nameInput {
+        height: 25px;
+        border-radius: 5px;
+        width: 250px;
+        margin-bottom: 7px;
+      }
+    }
+  }
 }

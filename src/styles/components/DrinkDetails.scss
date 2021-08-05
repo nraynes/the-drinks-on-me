@@ -1,0 +1,50 @@
+@import '../variables.scss';
+
+.drinkDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 750px;
+  max-width: 800px;
+  min-height: 220px;
+  position: fixed;
+  top: 10px;
+  border-radius: 15px;
+  right: 10px;
+  background-color: $themeSecondaryColor;
+  box-shadow: 5px 10px 20px black;
+  h4 {
+    margin-left: 20px;
+  }
+  .ContentContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin:10px;
+    .IngredientsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 30%;
+      border-radius: 15px;
+      background-color: $themeCardColor;
+      p {
+        margin-left: 10px;
+      }
+      div ul {
+        list-style: none;
+      }
+    }
+    .StepsContainer {
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      width:60%;
+      border-radius: 15px;
+      background-color: $themeCardColor;
+      article {
+        margin: 10px;
+      }
+    }
+  }
+}

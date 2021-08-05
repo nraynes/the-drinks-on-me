@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/components/Drink.css'
 function Drink(props) {
-    
     return (
         <Link style={{ textDecoration: 'none' }} to={`/${props.drink.drinks[0].strDrink}`}>
             <div className='drinkItem'>
