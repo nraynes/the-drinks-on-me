@@ -1,10 +1,39 @@
+html {
+  background-color: #333;
+}
+
 body {
   margin: 0;
   padding: 0;
 }
 
-body img {
+body #backImg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
+}
+
+.App {
+  display: -ms-grid;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+}
+
+.listContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 75vh;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 /*# sourceMappingURL=App.css.map */

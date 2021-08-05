@@ -1,8 +1,29 @@
+html {
+    background-color: #333;
+}
+
 body {
     margin: 0;
     padding: 0;
-    img {
+    #backImg {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
         width: 100vw;
         height: 100vh;
     }
+}
+
+.App {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+}
+
+.listContainer {
+    display: flex;
+    height: 75vh;
+    align-items: flex-end;
+    flex-direction: row;
 }

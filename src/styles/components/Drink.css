@@ -22,10 +22,15 @@
   height: 200px;
   border-radius: 50%;
   width: 100%;
+  -webkit-box-shadow: 5px 10px 20px black;
+          box-shadow: 5px 10px 20px black;
 }
 
 .drinkItem p {
-  font-size: 20px;
+  font-size: 18px;
+  text-shadow: 3px 6px 5px black;
+  font-weight: bold;
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
 /*# sourceMappingURL=Drink.css.map */

@@ -6,7 +6,9 @@ function TopBar(props) {
         <div className='TopBar'>
             <h1>Drinks On Me</h1>
             <div id='filterContainer'>
-                <span>Placeholder, no filter items as of yet.</span>
+                <form>
+                    <input name='nameInput' type='text' placeholder='Your name...'></input>
+                </form>
             </div>
         </div>
     );

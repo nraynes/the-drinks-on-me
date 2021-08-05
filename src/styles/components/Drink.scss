@@ -8,14 +8,19 @@
     width: $picSize;
     height: $picSize+50px;
     margin: 20px;
+    
     img {
         width: 100%;
         height: $picSize;
         border-radius: 50%;
         width: 100%;
+        box-shadow: 5px 10px 20px black;
     }
     p {
-        font-size: 20px;
+        font-size: 18px;
+        text-shadow: 3px 6px 5px black;
+        font-weight: bold;
+        color: white;
         font-family: Arial, Helvetica, sans-serif;
     }
 }
