@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAC;EACN,QAAQ,EAAE,MAAM;EAChB,gBAAgB,EAAE,IAAI;EACtB,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,CAAC;EACN,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,KAAK,EAAC,KACR;CAAC",
+    "mappings": "AAEA,AAAA,OAAO,CAAC;EACN,QAAQ,EAAE,MAAM;EAChB,gBAAgB,ECHL,MAAM;EDIjB,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,CAAC;EACN,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,KAAK,EAAC,KACR;CAAC",
     "sources": [
-        "TopBar.scss"
+        "TopBar.scss",
+        "../variables.scss"
     ],
     "names": [],
     "file": "TopBar.css"

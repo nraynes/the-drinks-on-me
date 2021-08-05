@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './styles/App.css';
 import { useState } from 'react';
 import TopBar from './components/TopBar';
@@ -10,8 +11,12 @@ function App(props) {
   const [drinkList, setDrinkList] = useState(props.initList)
   const [curDrink, setCurDrink] = useState({})
 
+=======
+import Modal from "./components/modal/Modal"
+>>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
 
   return (
+<<<<<<< HEAD
     <div className="App">
       <TopBar setDrinkList={(value) => {setDrinkList(value)}} />
       <div className='listContainer'>
@@ -38,6 +43,10 @@ function App(props) {
         }}>
         </Route>
       </Switch>
+=======
+    <div>
+      <Modal />
+>>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
     </div>
   );
 }

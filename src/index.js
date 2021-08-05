@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+<<<<<<< HEAD
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
@@ -27,3 +28,13 @@ Promise.all(promiseArray)
       document.getElementById('root')
     );
   })
+=======
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+>>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
