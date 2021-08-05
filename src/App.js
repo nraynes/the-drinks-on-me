@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import './styles/App.css';
 import { useState } from 'react';
 import TopBar from './components/TopBar';
@@ -14,10 +15,14 @@ function App(props) {
 =======
 import Modal from "./components/modal/Modal"
 >>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
+=======
+import DrinkDetails from "./components/drink-details/DrinkDetails";
+>>>>>>> cd0af60f9d4da65c24aaee02b576730ea9a73aa3
 
   return (
 <<<<<<< HEAD
     <div className="App">
+<<<<<<< HEAD
       <TopBar setDrinkList={(value) => {setDrinkList(value)}} />
       <div className='listContainer'>
         {drinkList.map((item) => {
@@ -47,6 +52,9 @@ import Modal from "./components/modal/Modal"
     <div>
       <Modal />
 >>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
+=======
+      <DrinkDetails/>
+>>>>>>> cd0af60f9d4da65c24aaee02b576730ea9a73aa3
     </div>
   );
 }
