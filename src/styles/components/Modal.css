@@ -1,0 +1,72 @@
+.modalBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  border: 1px solid black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3%;
+  background-color: rgba(108, 108, 108, 0.5);
+}
+
+.modalTitle {
+  font-size: 2.5em;
+  padding: 3%;
+  font-family: "Amatic SC", cursive, monospace;
+  font-weight: 500;
+}
+
+.modalPrompt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5em;
+  padding: 5%;
+}
+
+.modalPromptButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 10%;
+  margin: 10%;
+}
+
+.modalPromptButtons > button {
+  margin: 50%;
+  border: none;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 50%;
+  padding-right: 50%;
+  border-radius: 10%;
+  color: white;
+}
+
+.primaryButton {
+  background-color: yellowgreen;
+}
+
+.secondaryButton {
+  background-color: darkgray;
+}
+/*# sourceMappingURL=Modal.css.map */

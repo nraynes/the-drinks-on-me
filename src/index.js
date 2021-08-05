@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
 import App from './App';
-<<<<<<< HEAD
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
@@ -29,21 +27,3 @@ Promise.all(promiseArray)
       document.getElementById('root')
     );
   })
-=======
-=======
-
-import App from './App';
->>>>>>> cd0af60f9d4da65c24aaee02b576730ea9a73aa3
-
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-<<<<<<< HEAD
-);
->>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
-=======
-);
->>>>>>> cd0af60f9d4da65c24aaee02b576730ea9a73aa3

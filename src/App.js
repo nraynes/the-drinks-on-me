@@ -1,33 +1,54 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import './styles/App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TopBar from './components/TopBar';
 import Drink from './components/Drink';
-// import DrinkDetails from './components/drink-details.js';
+import DrinkDetails from './components/DrinkDetails';
 import { Route, Switch } from 'react-router-dom';
 let isRendered = false;
 
 function App(props) {
   const [drinkList, setDrinkList] = useState(props.initList)
+  const [nonA, setNonA] = useState(false);
   const [curDrink, setCurDrink] = useState({})
 
-=======
-import Modal from "./components/modal/Modal"
->>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
-=======
-import DrinkDetails from "./components/drink-details/DrinkDetails";
->>>>>>> cd0af60f9d4da65c24aaee02b576730ea9a73aa3
+  useEffect(() => {
+    if (nonA) {
+      fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
+        .then(data => data.json())
+        .then(data => {
+          let newArr = [];
+          for (let i=0;i<data.drinks.length;i++) {
+            let curObj = {};
+            curObj.drinks = [data.drinks[i]];
+            newArr.push(curObj);
+          };
+          setDrinkList(newArr);
+        })
+    } else {
+      let result = [];
+      let promiseArray = [];
+      for (let i=1;i<=24;i++) {
+        const newPromise = fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+        .then(data => data.json())
+        .then(data => {
+          result.push(data);
+        })
+        promiseArray.push(newPromise);
+      }
+      Promise.all(promiseArray)
+        .then(() => {
+          setDrinkList(result);
+        })
+    }
+  }, [nonA]);
 
   return (
-<<<<<<< HEAD
     <div className="App">
-<<<<<<< HEAD
-      <TopBar setDrinkList={(value) => {setDrinkList(value)}} />
+      <TopBar nonA={nonA} setNonA={(value) => {setNonA(value)}} setDrinkList={(value) => {setDrinkList(value)}} />
       <div className='listContainer'>
-        {drinkList.map((item) => {
+        {Array.isArray(drinkList) ? drinkList.map((item) => {
           return (<Drink drink={item}/>);
-        })}
+        }) : null}
       </div>
       <Switch>
         <Route path='/:drinkName' children={({match}) => {
@@ -41,20 +62,12 @@ import DrinkDetails from "./components/drink-details/DrinkDetails";
               })
           }
           if (Object.keys(curDrink).length > 0 && (curDrink.drinks[0].strDrink).toLowerCase() === matchedName.toLowerCase()) {
-            // <DrinkDetails drink={curDrink.drinks[0]} />
-            console.log(curDrink);
             setTimeout(() => {isRendered = false}, 1000)
+            return <DrinkDetails drink={curDrink.drinks[0]} />
           };
         }}>
         </Route>
       </Switch>
-=======
-    <div>
-      <Modal />
->>>>>>> fe7aaa14f06fcacb0596fa0bbc7ad9800d8c4878
-=======
-      <DrinkDetails/>
->>>>>>> cd0af60f9d4da65c24aaee02b576730ea9a73aa3
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from "./DrinkDetails.module.css";
+import "../styles/components/DrinkDetails.css"
 
 function DrinkDetails(props) {
-
+    
     const ingredientsArray = [];
     const measurementArray = [];
     const resultArray = [];
@@ -39,15 +39,12 @@ function DrinkDetails(props) {
 
 
     //push the array a string that contains the `{strMeasurement1} + {strIngredient1}`
-
     return (
-        <div className={styles.drinkDetailsBody}>
-            <div className={styles.drinkDetailsName}>
-                {props.drink.strDrink}
-            </div>
-            <div className={styles.drinkDetailsContents}>
-                <div className={styles.drinkDetailsIngredients}>
-                    Ingredients
+        <div className={'drinkDetailsContainer'}>
+            <h4>{props.drink.strDrink}</h4>
+            <div className={'ContentContainer'}>
+                <div className={'IngredientsContainer'}>
+                    <p>Ingredients</p>
                     <div>
                         <ul>
                             {resultArray.map((item, index) => {
@@ -58,8 +55,8 @@ function DrinkDetails(props) {
 
 
                 </div>
-                <div className={styles.drinkDetailsSteps}>
-                    Steps
+                <div className={'StepsContainer'}>
+                    <p>Steps</p>
                     <article>{props.drink.strInstructions}</article>
                 </div>
             </div>
