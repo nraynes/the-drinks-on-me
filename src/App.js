@@ -4,15 +4,18 @@ import TopBar from './components/TopBar';
 import Drink from './components/Drink';
 import DrinkDetails from './components/DrinkDetails';
 import { Route, Switch } from 'react-router-dom';
+import Modal from './components/Modal';
 let isRendered = false;
 
 function App(props) {
-  const [drinkList, setDrinkList] = useState(props.initList)
+  const [drinkList, setDrinkList] = useState(props.initList);
   const [nonA, setNonA] = useState(false);
-  const [curDrink, setCurDrink] = useState({})
-
+  const [curDrink, setCurDrink] = useState({});
+  const [ofAge, setOfAge] = useState(null);
+  const [renderAgain, setRenderAgain] = useState()
+console.log('Hello im here!')
   useEffect(() => {
-    if (nonA) {
+    if (nonA || !ofAge) {
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
         .then(data => data.json())
         .then(data => {
@@ -40,11 +43,18 @@ function App(props) {
           setDrinkList(result);
         })
     }
-  }, [nonA]);
+  }, [nonA, ofAge, renderAgain]);
+
+  function renderModal() {
+    if (ofAge === null) {
+      return (<Modal setOfAge={(value) => setOfAge(value)}/>)
+    }
+  }
 
   return (
     <div className="App">
-      <TopBar nonA={nonA} setNonA={(value) => {setNonA(value)}} setDrinkList={(value) => {setDrinkList(value)}} />
+      {renderModal()}
+      <TopBar setRender={(value) => {setRenderAgain(value)}} ofAge={ofAge} nonA={nonA} setNonA={(value) => {setNonA(value)}} setDrinkList={(value) => {setDrinkList(value)}} />
       <div className='listContainer'>
         {Array.isArray(drinkList) ? drinkList.map((item) => {
           return (<Drink drink={item}/>);

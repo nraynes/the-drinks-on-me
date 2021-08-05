@@ -3,7 +3,8 @@
 .drinkDetailsContainer {
   display: flex;
   flex-direction: column;
-  width: 800px;
+  min-width: 750px;
+  max-width: 800px;
   min-height: 220px;
   position: fixed;
   top: 10px;

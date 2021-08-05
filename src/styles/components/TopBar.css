@@ -11,6 +11,14 @@
   margin-left: 10px;
 }
 
+.TopBar h1:hover {
+  color: #bbb5b5;
+}
+
+.TopBar h1:active {
+  color: #666464;
+}
+
 .TopBar div {
   margin-left: 5px;
 }
