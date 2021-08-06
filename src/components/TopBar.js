@@ -7,48 +7,50 @@ function TopBar(props) {
     let userInput = useRef()
 
     function filterDrinks(input) {
-        let promiseArray = [];
-        let resultArray = [];
-        for (let i=0;i<input.length;i++) {
-            let newPromise = fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${input[i]}`)
-                .then(data => data.json())
-                .then(data => {
-                    resultArray.push(data.drinks)
-                })
-            promiseArray.push(newPromise)
-        }
-        let filterArray = [];
-        Promise.all(promiseArray)
-            .then(() => {
-                for (let i=0;i<resultArray.length;i++) {
-                    let curArr = resultArray[i];
-                    let pickedDrink;
-                    if (Array.isArray(curArr)) {
-                        if (curArr.length > 0) {
-                            let drinkPicked = false;
-                            let count = 0;
-                            while (drinkPicked === false && count < 10) {
-                                pickedDrink = curArr[Math.floor(Math.random() * (curArr.length-1))]
-                                let buildObj = {};
-                                buildObj.drinks = [pickedDrink]
-                                if (filterArray.length === 0) {
-                                    filterArray.push(buildObj)
-                                    drinkPicked = true;
-                                } else if (!(filterArray.find((item) => {
-                                    if ((item.drinks[0].strDrink).toLowerCase() === (buildObj.drinks[0].strDrink).toLowerCase()) {
-                                        return item;
+        if (!props.nonA) {
+            let promiseArray = [];
+            let resultArray = [];
+            for (let i=0;i<input.length;i++) {
+                let newPromise = fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${input[i]}`)
+                    .then(data => data.json())
+                    .then(data => {
+                        resultArray.push(data.drinks)
+                    })
+                promiseArray.push(newPromise)
+            }
+            let filterArray = [];
+            Promise.all(promiseArray)
+                .then(() => {
+                    for (let i=0;i<resultArray.length;i++) {
+                        let curArr = resultArray[i];
+                        let pickedDrink;
+                        if (Array.isArray(curArr)) {
+                            if (curArr.length > 0) {
+                                let drinkPicked = false;
+                                let count = 0;
+                                while (drinkPicked === false && count < 10) {
+                                    pickedDrink = curArr[Math.floor(Math.random() * (curArr.length-1))]
+                                    let buildObj = {};
+                                    buildObj.drinks = [pickedDrink]
+                                    if (filterArray.length === 0) {
+                                        filterArray.push(buildObj)
+                                        drinkPicked = true;
+                                    } else if (!(filterArray.find((item) => {
+                                        if ((item.drinks[0].strDrink).toLowerCase() === (buildObj.drinks[0].strDrink).toLowerCase()) {
+                                            return item;
+                                        }
+                                    }))) {
+                                        filterArray.push(buildObj)
+                                        drinkPicked = true;
                                     }
-                                }))) {
-                                    filterArray.push(buildObj)
-                                    drinkPicked = true;
+                                    count++;
                                 }
-                                count++;
                             }
                         }
                     }
-                }
-                props.setDrinkList(filterArray);
-            })
+                    props.setDrinkList(filterArray);
+                })
+        }
     }
 
     function returnCheckBox() {
@@ -77,6 +79,7 @@ function TopBar(props) {
                         <button id='searchButton' onClick={(e) => {
                             e.preventDefault()
                             let myInput = (((userInput.current.value).replace(/\s{1,}/g,'')).toLowerCase()).split('')
+                            userInput.current.value = '';
                             filterDrinks(myInput)
                         }}>Search</button>
                     </div>
