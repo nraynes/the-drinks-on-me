@@ -27,7 +27,6 @@ function TopBar(props) {
 
     function nameInput(event) {
         event.preventDefault()
-        const promiseArray = [];
         //take input full name
         const resultArray = [];
         const userInput = nameInputRef.current.value
@@ -40,7 +39,8 @@ function TopBar(props) {
             finalInput = userInput
         }
 
-        //make a fetch call to the searchCocktailsByFirstLetter
+        //make a fetch call promiseto the searchCocktailsByFirstLetter
+        const promiseArray = [];
         for (let i = 0; i < finalInput.length; i++) {
             //check for repeating characters in name
             const drinkPromise = fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${finalInput[i]}`).then(res => res.json());
@@ -48,31 +48,31 @@ function TopBar(props) {
             promiseArray.push(drinkPromise)
         }
 
-        ///REPEAT
-        Promise.all(promiseArray).then(drinks => {
+        Promise.all(promiseArray).then(drinksArray => {
             //if finalInput has no repeating characters, then execute line 43
             let characterSet = {};
             for (let i = 0; i < finalInput.length; i++) {
                 const char = finalInput[i];
-                console.log('the char', char)
+
                 if (characterSet[char] !== undefined) {
-                    characterSet[char] += 1;
+                    characterSet[char].repeated += 1
                 } else {
-                    characterSet[char] = 0;
+                    characterSet[char] = { repeated: 0, indexFound: i }
                 }
             }
-            console.log('charSet', characterSet);
 
             for (const k in characterSet) {
-                if (characterSet[k] > 0) {
-                    for (let j = 0; j <= characterSet[k]; j++) {
-                        drinks.map(drink => resultArray.push(drink.drinks[j]))
+                const charObject = characterSet[k];
+                if (charObject.repeated > 0) {
+                    for (let j = 0; j <= charObject.repeated; j++) {
+                        console.log('there are repeated char drinks', drinksArray[charObject.indexFound].drinks[j])
+                        resultArray.push(drinksArray[charObject.indexFound].drinks[j])
                     }
                 } else {
-                    drinks.map(drink => resultArray.push(drink.drinks[0]))
+                    console.log('non repeated', k, drinksArray[charObject.indexFound].drinks[0])
+                    resultArray.push(drinksArray[charObject.indexFound].drinks[0])
                 }
             }
-
         })
 
         props.setDrinkList(resultArray)
