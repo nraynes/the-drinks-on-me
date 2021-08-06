@@ -4,6 +4,7 @@ import '../styles/components/TopBar.css';
 
 function TopBar(props) {
     let { ofAge, setRender } = props;
+    const nameInputRef = useRef();
 
     function returnCheckBox() {
         if (ofAge) {
@@ -18,13 +19,10 @@ function TopBar(props) {
                 <input disabled checked={true} id='nonACheck' type='checkbox'></input>
             );
         }
-    const nameInputRef = useRef()
-    //search by character in a first and last name, make a fetch call for the length of name and take only the first result in the response and push to array and present the array
-
-    //only take first result, push to a temp array
-    //set statue to temp array temp array
-    //map the state to the Drink.js
-    const nameInputRef = useRef();
+        //only take first result, push to a temp array
+        //set statue to temp array temp array
+        //map the state to the Drink.js
+    }
 
     function nameInput(event) {
         event.preventDefault()
@@ -82,19 +80,18 @@ function TopBar(props) {
 
     return (
         <div className='TopBar'>
-            <h1 onClick={()=> setRender(Math.random())}>Drinks On Me</h1>
+            <h1 onClick={() => setRender(Math.random())}>Drinks On Me</h1>
             <div id='filterContainer'>
                 <form onSubmit={nameInput}>
                     <input id='nameInput' name='nameInput' type='text' placeholder='Your name...' ref={nameInputRef}></input>
                     <button type='submit'>Submit</button>
                     <div>
                         {returnCheckBox()}
-                        <label for='nonACheck'>Non-Alchoholic</label>
+                        <label htmlFor='nonACheck'>Non-Alchoholic</label>
                     </div>
                 </form>
             </div>
         </div>
     );
 }
-
 export default TopBar;

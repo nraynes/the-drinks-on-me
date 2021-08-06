@@ -13,7 +13,7 @@ function App(props) {
   const [curDrink, setCurDrink] = useState({});
   const [ofAge, setOfAge] = useState(null);
   const [renderAgain, setRenderAgain] = useState()
-console.log('Hello im here!')
+
   useEffect(() => {
     if (nonA || !ofAge) {
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
@@ -43,7 +43,7 @@ console.log('Hello im here!')
           setDrinkList(result);
         })
     }
-  }, [nonA, ofAge, renderAgain]);
+  }, [nonA, ofAge, renderAgain, setDrinkList]);
 
 console.log('drink list defined in the app', drinkList)
   function renderModal() {
@@ -57,8 +57,8 @@ console.log('drink list defined in the app', drinkList)
       {renderModal()}
       <TopBar setRender={(value) => {setRenderAgain(value)}} ofAge={ofAge} nonA={nonA} setNonA={(value) => {setNonA(value)}} setDrinkList={(value) => {setDrinkList(value)}} />
       <div className='listContainer'>
-        {Array.isArray(drinkList) ? drinkList.map((item) => {
-          return (<Drink drink={item}/>);
+        {Array.isArray(drinkList) ? drinkList.map((item, index) => {
+          return (<Drink key={index} drink={item}/>);
         }) : null}
       </div>
       <Switch>
