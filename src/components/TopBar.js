@@ -27,7 +27,7 @@ function TopBar(props) {
             <h1 onClick={()=> setRender(Math.random())}>Drinks On Me</h1>
             <div id='filterContainer'>
                 <form>
-                    <input id='nameInput' name='nameInput' type='text' placeholder='Your name...'></input>
+                    {/* <input id='nameInput' name='nameInput' type='text' placeholder='Your name...'></input> */}
                     <div>
                         {returnCheckBox()}
                         <label for='nonACheck'>Non-Alchoholic</label>
