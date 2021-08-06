@@ -24,6 +24,7 @@ function TopBar(props) {
     //only take first result, push to a temp array
     //set statue to temp array temp array
     //map the state to the Drink.js
+    const nameInputRef = useRef();
 
     function nameInput(event) {
         event.preventDefault()

@@ -45,6 +45,7 @@ console.log('Hello im here!')
     }
   }, [nonA, ofAge, renderAgain]);
 
+console.log('drink list defined in the app', drinkList)
   function renderModal() {
     if (ofAge === null) {
       return (<Modal setOfAge={(value) => setOfAge(value)}/>)
@@ -61,14 +62,14 @@ console.log('Hello im here!')
         }) : null}
       </div>
       <Switch>
-        <Route path='/:drinkName' children={({match}) => {
+        <Route path='/:drinkName' children={({ match }) => {
           let matchedName = match.params.drinkName;
-          if(!isRendered) {
+          if (!isRendered) {
             isRendered = true;
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${matchedName}`)
-              .then ((data) => data.json())
-              .then ((data) => {
-                  setCurDrink(data) 
+              .then((data) => data.json())
+              .then((data) => {
+                setCurDrink(data)
               })
           }
           if (Object.keys(curDrink).length > 0 && (curDrink.drinks[0].strDrink).toLowerCase() === matchedName.toLowerCase()) {
