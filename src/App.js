@@ -1,10 +1,10 @@
-import './styles/App.css';
 import { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Drink from './components/Drink';
 import DrinkDetails from './components/DrinkDetails';
-import { Route, Switch } from 'react-router-dom';
 import Modal from './components/Modal';
+import './styles/App.css';
 let isRendered = false;
 
 function App(props) {
@@ -13,7 +13,7 @@ function App(props) {
   const [curDrink, setCurDrink] = useState({});
   const [ofAge, setOfAge] = useState(null);
   const [renderAgain, setRenderAgain] = useState()
-console.log('Hello im here!')
+
   useEffect(() => {
     if (nonA || !ofAge) {
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
@@ -43,7 +43,7 @@ console.log('Hello im here!')
           setDrinkList(result);
         })
     }
-  }, [nonA, ofAge, renderAgain]);
+  }, [nonA, ofAge, renderAgain, setDrinkList]);
 
   function renderModal() {
     if (ofAge === null) {
@@ -56,19 +56,19 @@ console.log('Hello im here!')
       {renderModal()}
       <TopBar setRender={(value) => {setRenderAgain(value)}} ofAge={ofAge} nonA={nonA} setNonA={(value) => {setNonA(value)}} setDrinkList={(value) => {setDrinkList(value)}} />
       <div className='listContainer'>
-        {Array.isArray(drinkList) ? drinkList.map((item) => {
-          return (<Drink drink={item}/>);
+        {Array.isArray(drinkList) ? drinkList.map((item, index) => {
+          return (<Drink key={index} drink={item}/>);
         }) : null}
       </div>
       <Switch>
-        <Route path='/:drinkName' children={({match}) => {
+        <Route path='/:drinkName' children={({ match }) => {
           let matchedName = match.params.drinkName;
-          if(!isRendered) {
+          if (!isRendered) {
             isRendered = true;
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${matchedName}`)
-              .then ((data) => data.json())
-              .then ((data) => {
-                  setCurDrink(data) 
+              .then((data) => data.json())
+              .then((data) => {
+                setCurDrink(data)
               })
           }
           if (Object.keys(curDrink).length > 0 && (curDrink.drinks[0].strDrink).toLowerCase() === matchedName.toLowerCase()) {

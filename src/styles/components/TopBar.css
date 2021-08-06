@@ -39,4 +39,17 @@
   width: 250px;
   margin-bottom: 7px;
 }
+.TopBar form>div {
+  display: flex;
+  flex-flow: row wrap
+}
+
+.TopBar form button {
+  color: aliceblue;
+  height: 2.25em;
+  background-color: yellowgreen;
+  width: 5%;
+  border: none;
+  border-radius: .17em;
+}
 /*# sourceMappingURL=TopBar.css.map */

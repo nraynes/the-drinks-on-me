@@ -5,7 +5,7 @@ function Drink(props) {
     return (
         <Link style={{ textDecoration: 'none' }} to={`/${props.drink.drinks[0].strDrink}`}>
             <div className='drinkItem'>
-                <img src={props.drink.drinks[0].strDrinkThumb}/>
+                <img alt={props.drink.drinks[0].strDrink} src={props.drink.drinks[0].strDrinkThumb}/>
                 <p>{props.drink.drinks[0].strDrink}</p>
                 
             </div>
