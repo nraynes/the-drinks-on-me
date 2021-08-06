@@ -1,10 +1,10 @@
-import './styles/App.css';
 import { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import TopBar from './components/TopBar';
 import Drink from './components/Drink';
 import DrinkDetails from './components/DrinkDetails';
-import { Route, Switch } from 'react-router-dom';
 import Modal from './components/Modal';
+import './styles/App.css';
 let isRendered = false;
 
 function App(props) {
@@ -45,7 +45,6 @@ function App(props) {
     }
   }, [nonA, ofAge, renderAgain, setDrinkList]);
 
-console.log('drink list defined in the app', drinkList)
   function renderModal() {
     if (ofAge === null) {
       return (<Modal setOfAge={(value) => setOfAge(value)}/>)

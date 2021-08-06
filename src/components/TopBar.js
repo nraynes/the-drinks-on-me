@@ -1,8 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import DrinkAlt from './drink-alt/DrinkAlt';
+import styles from './drink-alt/DrinkAlt.module.css'
 import '../styles/components/TopBar.css';
 
 
 function TopBar(props) {
+    const [filteredDrinks, setFilteredDrinks] = useState([]);
     let { ofAge, setRender } = props;
     const nameInputRef = useRef();
 
@@ -19,9 +22,6 @@ function TopBar(props) {
                 <input disabled checked={true} id='nonACheck' type='checkbox'></input>
             );
         }
-        //only take first result, push to a temp array
-        //set statue to temp array temp array
-        //map the state to the Drink.js
     }
 
     function nameInput(event) {
@@ -74,7 +74,7 @@ function TopBar(props) {
             }
         })
 
-        props.setDrinkList(resultArray)
+        setFilteredDrinks(resultArray);
     }
 
 
@@ -83,13 +83,18 @@ function TopBar(props) {
             <h1 onClick={() => setRender(Math.random())}>Drinks On Me</h1>
             <div id='filterContainer'>
                 <form onSubmit={nameInput}>
-                    <input id='nameInput' name='nameInput' type='text' placeholder='Your name...' ref={nameInputRef}></input>
-                    <button type='submit'>Submit</button>
+                    <div>
+                        <input id='nameInput' name='nameInput' type='text' placeholder='Your name...' ref={nameInputRef}></input>
+                        <button id='nameInputSubmit' type='submit'>Submit</button>
+                    </div>
                     <div>
                         {returnCheckBox()}
                         <label htmlFor='nonACheck'>Non-Alchoholic</label>
                     </div>
                 </form>
+            </div>
+            <div className={styles.listContainer}>
+                    {filteredDrinks.length > 0 ? filteredDrinks.map((drink, index) => (<DrinkAlt title='drink-item' key={index} drink={drink}/>)) : null}
             </div>
         </div>
     );
