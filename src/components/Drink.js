@@ -4,7 +4,7 @@ import '../styles/components/Drink.css'
 function Drink(props) {
     return (
         <Link style={{ textDecoration: 'none' }} to={`/${props.drink.drinks[0].strDrink}`}>
-            <div className='drinkItem'>
+            <div id={((props.drink.drinks[0].strDrink).replace(/\s{1,}/g,'')).toLowerCase()} className='drinkItem'>
                 <img src={props.drink.drinks[0].strDrinkThumb}/>
                 <p>{props.drink.drinks[0].strDrink}</p>
                 
