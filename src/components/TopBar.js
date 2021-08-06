@@ -65,11 +65,11 @@ function TopBar(props) {
                 const charObject = characterSet[k];
                 if (charObject.repeated > 0) {
                     for (let j = 0; j <= charObject.repeated; j++) {
-                        console.log('there are repeated char drinks', drinksArray[charObject.indexFound].drinks[j])
+                        console.log('repeated-char', k, 'drinks', drinksArray[charObject.indexFound].drinks[j])
                         resultArray.push(drinksArray[charObject.indexFound].drinks[j])
                     }
                 } else {
-                    console.log('non repeated', k, drinksArray[charObject.indexFound].drinks[0])
+                    console.log('non-repeated-char', k, 'drinks', drinksArray[charObject.indexFound].drinks[0])
                     resultArray.push(drinksArray[charObject.indexFound].drinks[0])
                 }
             }
