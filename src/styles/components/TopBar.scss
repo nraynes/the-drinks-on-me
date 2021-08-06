@@ -16,6 +16,14 @@
   h1:active {
     color: rgb(102, 100, 100);
   }
+  #searchButton {
+    width: 80px;
+    height: 30px;
+    margin-left: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: 0;
+  }
   div {
     margin-left: 5px;
     form {

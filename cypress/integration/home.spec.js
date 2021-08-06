@@ -1,8 +1,5 @@
 /* eslint-disable no-undef */
 
-import { wait } from "@testing-library/react"
-
-
 describe('Drinks On Me App Cypress Tests', () => {
     it('should have a modal that pops up asking if your 21+', () => {
         cy.visit('http://localhost:3000/')

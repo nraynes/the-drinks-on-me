@@ -13,7 +13,6 @@ function App(props) {
   const [curDrink, setCurDrink] = useState({});
   const [ofAge, setOfAge] = useState(null);
   const [renderAgain, setRenderAgain] = useState()
-console.log('Hello im here!')
   useEffect(() => {
     if (nonA || !ofAge) {
       fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
